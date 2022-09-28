@@ -1,10 +1,10 @@
 package com.example.core;
 
+import com.example.base.ConfProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
     public static WebDriver driver;
