@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/erjan/IdeaProjects/Selenium_UI_testing">
+        <classes>
+            <class name="com.example.pages.ChangePasswordPageTest">
+                <methods>
+                    <include name="testOpenPage"/>
+                    <include name="testChangePassword"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.EditAccountDetailsPageTest">
+                <methods>
+                    <include name="testOpenPage"/>
+                    <include name="testEditDetails"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.LoginPageTest">
+                <methods>
+                    <include name="signInTest"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.ViewAccountDetailsPageTest">
+                <methods>
+                    <include name="viewAccountsDetail"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.ViewOwnOrdersPageTest">
+                <methods>
+                    <include name="viewOwnOrdersDetail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
