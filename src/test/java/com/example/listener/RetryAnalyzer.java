@@ -2,8 +2,6 @@ package com.example.listener;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
-import org.testng.Reporter;
-import org.testng.TestListenerAdapter;
 
 public class RetryAnalyzer implements IRetryAnalyzer {
 
