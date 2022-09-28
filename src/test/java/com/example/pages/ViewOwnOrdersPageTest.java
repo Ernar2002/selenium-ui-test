@@ -11,7 +11,7 @@ public class ViewOwnOrdersPageTest extends BaseTest {
     private ViewOwnOrdersPage viewOwnOrdersPage;
 
     @BeforeClass
-    public void setUp(){
+    public void initialization(){
         //init classes
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);

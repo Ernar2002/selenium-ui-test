@@ -10,7 +10,7 @@ public class BaseTest {
     public static WebDriver driver;
 
     @BeforeSuite
-    public void initialization(){
+    public void setUp(){
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
 
         driver = new ChromeDriver();

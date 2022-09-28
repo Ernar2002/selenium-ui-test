@@ -11,7 +11,7 @@ public class ChangePasswordPageTest extends BaseTest {
     private ChangePasswordPage changePasswordPage;
 
     @BeforeClass
-    public void setUp(){
+    public void initialization(){
        //init classes
        homePage = new HomePage(driver);
        loginPage = new LoginPage(driver);

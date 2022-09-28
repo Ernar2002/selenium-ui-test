@@ -12,7 +12,7 @@ public class ViewAccountDetailsPageTest extends BaseTest {
     private ViewAccountDetailsPage viewAccountDetailsPage;
 
     @BeforeClass
-    public void setUp(){
+    public void initialization(){
         //init classes
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
