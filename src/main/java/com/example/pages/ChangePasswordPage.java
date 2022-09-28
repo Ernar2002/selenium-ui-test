@@ -31,12 +31,12 @@ public class ChangePasswordPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitBtn;
 
-    public ChangePasswordPage typeExistingPassword(String existingPassword){
+    private ChangePasswordPage typeExistingPassword(String existingPassword){
         existingPasswordField.sendKeys(existingPassword);
         return this;
     }
 
-    public ChangePasswordPage typePassword(String password){
+    private ChangePasswordPage typePassword(String password){
         passwordField.sendKeys(password);
         return this;
     }

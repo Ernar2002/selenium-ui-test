@@ -18,6 +18,7 @@ public class EditAccountDetailsPage {
     public EditAccountDetailsPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @FindBy(xpath = "//input[@name='firstName']")
@@ -44,36 +45,36 @@ public class EditAccountDetailsPage {
     @FindBy(xpath = "//select[@id='datepicker_year_select']")
     private WebElement yearsSelect;
 
-    public EditAccountDetailsPage typeFirstName(String firstName){
+    private EditAccountDetailsPage typeFirstName(String firstName){
         firstNameField.sendKeys(firstName);
         return this;
     }
 
-    public EditAccountDetailsPage typeLastName(String lastName){
+    private EditAccountDetailsPage typeLastName(String lastName){
         lastNameField.sendKeys(lastName);
         return this;
     }
 
-    public EditAccountDetailsPage typeEmailAddress(String email){
+    private EditAccountDetailsPage typeEmailAddress(String email){
         emailAddressField.sendKeys(email);
         return this;
     }
 
-    public void chooseInterested(String interested){
+    private void chooseInterested(String interested){
         mostlyInterestedIn.click();
     }
 
-    public void selectBirthdayDay(int day){
+    private void selectBirthdayDay(int day){
         Select select = new Select(daysSelect);
         select.selectByValue(Integer.toString(day));
     }
 
-    public void selectBirthdayMonth(int month){
+    private void selectBirthdayMonth(int month){
         Select select = new Select(monthsSelect);
         select.selectByIndex(month);
     }
 
-    public void selectBirthdayYear(int year){
+    private void selectBirthdayYear(int year){
         Select select = new Select(yearsSelect);
         select.selectByValue(Integer.toString(year));
     }
@@ -85,7 +86,7 @@ public class EditAccountDetailsPage {
                             int day,
                             int month,
                             int year) {
-        wait(emailAddressField);
+        wait.until(ExpectedConditions.visibilityOf(emailAddressField));
         typeFirstName(firstName);
         typeLastName(lastName);
         typeEmailAddress(email);
@@ -94,11 +95,6 @@ public class EditAccountDetailsPage {
         selectBirthdayMonth(month);
         selectBirthdayYear(year);
         submitBtn.click();
-    }
-
-    public void wait(WebElement element){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
 }

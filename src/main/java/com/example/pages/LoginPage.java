@@ -22,12 +22,12 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id='signin']")
     private WebElement signInBtn;
 
-    public LoginPage typeEmail(String email){
+    private LoginPage typeEmail(String email){
         emailField.sendKeys(email);
         return this;
     }
 
-    public LoginPage typePassword(String password){
+    private LoginPage typePassword(String password){
         passwordField.sendKeys(password);
         return this;
     }
