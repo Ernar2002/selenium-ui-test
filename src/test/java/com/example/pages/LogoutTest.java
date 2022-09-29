@@ -16,8 +16,8 @@ public class LogoutTest extends BaseTest {
         homePage = new HomePage(driver);
     }
 
-    @Test(retryAnalyzer= RetryAnalyzer.class)
-    public void signInTest() {
+    @Test
+    public void signOutTest() {
         homePage.clickOnSignOutBtn();
 
         Assert.assertFalse(driver.findElement(By.xpath("//button[@data-testid='signout-link']")).isDisplayed());
