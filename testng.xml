@@ -32,4 +32,16 @@
             </class>
         </classes>
     </test>
+    <test name = "Test On Chrome">
+        <parameter name = "BrowserType" value="Chrome"/>
+        <classes>
+            <class name = "com.example.browser.CrossBrowserTesting"/>
+        </classes>
+    </test>
+    <test name = "Test On Firefox">
+        <parameter name = "BrowserType" value="Firefox"/>
+        <classes>
+            <class name = "com.example.browser.CrossBrowserTesting"/>
+        </classes>
+    </test>
 </suite>
