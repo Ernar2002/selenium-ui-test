@@ -26,6 +26,9 @@ public class HomePage {
     @FindBy(xpath = "//a[@data-testid='signin-link']")
     public WebElement signInLink;
 
+    @FindBy(xpath = "//button[@data-testid='signout-link']")
+    public WebElement signOutBtn;
+
     @FindBy(xpath = "//a[@data-testid='myaccount-link']")
     public WebElement myAccountLink;
 
@@ -41,5 +44,12 @@ public class HomePage {
         myAccountDropDownBtn.click();
         wait.until(ExpectedConditions.visibilityOf(myAccountLink));
         myAccountLink.click();
+    }
+
+    public void clickOnSignOutBtn(){
+        wait.until(ExpectedConditions.visibilityOf(myAccountDropDownBtn));
+        myAccountDropDownBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(signOutBtn));
+        signOutBtn.click();
     }
 }

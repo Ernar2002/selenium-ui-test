@@ -1,2 +1,26 @@
-package com.example.pages;public class LogoutTest {
+package com.example.pages;
+
+import com.example.base.HomePage;
+import com.example.core.BaseTest;
+import com.example.listener.RetryAnalyzer;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class LogoutTest extends BaseTest {
+    private HomePage homePage;
+
+    @BeforeClass
+    public void initialization(){
+        homePage = new HomePage(driver);
+    }
+
+    @Test(retryAnalyzer= RetryAnalyzer.class)
+    public void signInTest() {
+        homePage.clickOnSignOutBtn();
+
+        Assert.assertFalse(driver.findElement(By.xpath("//button[@data-testid='signout-link']")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.xpath("//button[@data-testid='signout-link']")).isDisplayed());
+    }
 }
