@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.example.base.HomePage;
 import com.example.core.BaseTest;
 import com.example.listener.RetryAnalyzer;
@@ -20,10 +22,10 @@ public class LoginPageTest extends BaseTest {
 
     @Test(retryAnalyzer= RetryAnalyzer.class)
     public void signInTest() {
+        ExtentTest sigInTest = extent.createTest("Sign In test");
         homePage.clickOnSignInLink();
         loginPage.signIn("infinity.aitu@gmail.com", "aitu123456789");
 
-        Assert.assertFalse(driver.findElement(By.xpath("//input[@id='signin']")).isDisplayed());
-        Assert.assertFalse(driver.findElement(By.xpath("//input[@id='signin']")).isDisplayed());
+        sigInTest.log(Status.PASS, "Successfully joined");
     }
 }
