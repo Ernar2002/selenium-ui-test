@@ -1,6 +1,5 @@
 package com.example.pages.actions;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -26,33 +25,37 @@ public class FavoritesAction {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
+    @FindBy(xpath = "//span[text() = 'SHOP MEN']")
+    private WebElement goToMenPage;
     @FindBy(xpath = "//a[@data-analytics-id=\"roe-mwgbl-winteressentials-mulink\"]")
-    public WebElement showProducts;
+    private WebElement winterProducts;
     @FindBy(xpath = "//button[@class=\"mm1gcXw\"]")
-    public List<WebElement> addToFavorites;
+    private List<WebElement> addToFavorites;
     @FindBy(xpath = "//a[@aria-label=\"Saved Items\"]")
-    public WebElement myFavorites;
-    @FindBy(xpath = "//button[@aria-label=\"Delete\"]")
-    public List<WebElement> deleteMyFavorites;
+    private WebElement myFavoritesIcon;
+    @FindBy(xpath = "//*[@id=\"saved-lists-app\"]/main/div/div[1]/section/ol//child::li")
+    private List<WebElement> savedFavorites;
 
-    public void addProductToFavorites(int index) {
-       //Click to see the products
-        wait.until(ExpectedConditions.visibilityOf(showProducts));
-        showProducts.click();
+    public void addProductToFavoritesWithCount(int count) {
+        //Click to see men's products
+        wait.until(ExpectedConditions.visibilityOf(goToMenPage));
+        goToMenPage.click();
+        //Click to see the winter products
+        wait.until(ExpectedConditions.visibilityOf(winterProducts));
+        winterProducts.click();
         //Add 3 products to favorites
-        wait.until(ExpectedConditions.visibilityOf(addToFavorites.get(1)));
-        WebElement category = addToFavorites.get(index);
-        category.click();
-        wait.until(ExpectedConditions.visibilityOf(myFavorites));
-        myFavorites.click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(addToFavorites));
+        for (int i = 0; i < count; i++) {
+            WebElement category = addToFavorites.get(i);
+            category.click();
         }
 
-    public void deleteFromFavorites(int index){
-        wait.until(ExpectedConditions.visibilityOf(myFavorites));
-        myFavorites.click();
-        //Delete all favorites
-        for(WebElement delete : deleteMyFavorites){
-           delete.click();
-       }
+        wait.until(ExpectedConditions.visibilityOf(myFavoritesIcon));
+        myFavoritesIcon.click();
+    }
+
+    public int savedSize() {
+        wait.until(ExpectedConditions.visibilityOfAllElements(savedFavorites));
+        return savedFavorites.size();
     }
 }

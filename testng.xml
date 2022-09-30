@@ -20,6 +20,16 @@
                     <include name="signInTest"/>
                 </methods>
             </class>
+            <class name="com.example.pages.FalseLoginPageTest">
+                <methods>
+                    <include name="falseSignInTest"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.SignOutPageTest">
+                <methods>
+                    <include name="signOutTest"/>
+                </methods>
+            </class>
             <class name="com.example.pages.ViewAccountDetailsPageTest">
                 <methods>
                     <include name="viewAccountsDetail"/>
@@ -28,6 +38,24 @@
             <class name="com.example.pages.ViewOwnOrdersPageTest">
                 <methods>
                     <include name="viewOwnOrdersDetail"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.actions.NavbarActionTest">
+                <methods>
+                    <include name="redirectToEachDropdownCategoriesWomen"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.actions.FavoritesActionTest">
+                <methods>
+                    <include name="addProductToFavorites"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.actions.SearchActionTest">
+                <methods>
+                    <include name="searchForNikeShoes"/>
+                </methods>
+                <methods>
+                    <include name="searchForInvalidProductName"/>
                 </methods>
             </class>
         </classes>

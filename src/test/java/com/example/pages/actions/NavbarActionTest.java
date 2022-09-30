@@ -3,6 +3,7 @@ package com.example.pages.actions;
 import com.example.core.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -21,9 +22,10 @@ public class NavbarActionTest extends BaseTest {
     public void redirectToEachDropdownCategoriesWomen() {
         navbarAction.redirectToItemInCategory(0);
 
-//        WebElement foundCount = driver.findElement(By.xpath("//p[@data-auto-id = 'styleCount']"));
+        WebElement foundCount = driver.findElement(By.xpath("//p[@data-auto-id = 'styleCount']"));
+        wait.until(ExpectedConditions.visibilityOf(foundCount));
 
-//        Assert.assertTrue(foundCount.isDisplayed(), "NOTHING MATCHES YOUR SEARCH");
+        Assert.assertTrue(foundCount.isDisplayed(), "NOTHING MATCHES YOUR SEARCH");
     }
 
 }

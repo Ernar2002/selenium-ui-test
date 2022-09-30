@@ -29,9 +29,9 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-//    @AfterClass
-//    public void tearDown(){
-//        driver.quit();
-//        extent.flush();
-//    }
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
+        extent.flush();
+    }
 }

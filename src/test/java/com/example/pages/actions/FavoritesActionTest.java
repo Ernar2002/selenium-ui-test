@@ -1,6 +1,7 @@
 package com.example.pages.actions;
 
 import com.example.core.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,13 +17,11 @@ public class FavoritesActionTest extends BaseTest {
 
     @Test
     public void addProductToFavorites() {
-        favoritesAction.addProductToFavorites(2);
-//        favoritesAction.addProductToFavorites(3);
-//        favoritesAction.addProductToFavorites(4);
+        int amount = 8;
+
+        favoritesAction.addProductToFavoritesWithCount(amount);
+
+        Assert.assertEquals(amount, favoritesAction.savedSize());
     }
 
-    @Test
-    public void deleteFromFavorites() {
-        favoritesAction.deleteFromFavorites(0);
-   }
 }
