@@ -28,4 +28,27 @@ public class LoginPageTest extends BaseTest {
 
         sigInTest.log(Status.PASS, "Successfully joined");
     }
+
+    @Test(retryAnalyzer= RetryAnalyzer.class)
+    public void test() {
+
+    }
+
+    @Test
+    public void signOutTest() {
+        homePage.clickOnSignOutBtn();
+
+        Assert.assertFalse(driver.findElement(By.xpath("//button[@data-testid='signout-link']")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.xpath("//button[@data-testid='signout-link']")).isDisplayed());
+    }
+
+    @Test(retryAnalyzer= RetryAnalyzer.class)
+    public void falseSignInTest() {
+        homePage.clickOnSignInLink();
+        loginPage.signIn("infinity.aitu@gmail.com", "aitu");
+
+        Assert.assertFalse(driver.findElement(By.xpath("//input[@id='signin']")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.xpath("//input[@id='signin']")).isDisplayed());
+    }
+
 }
