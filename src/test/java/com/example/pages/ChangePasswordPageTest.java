@@ -2,29 +2,25 @@ package com.example.pages;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.example.base.ConfProperties;
 import com.example.base.HomePage;
 import com.example.core.BaseTest;
+import com.example.core.SignInInterface;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class ChangePasswordPageTest extends BaseTest {
+public class ChangePasswordPageTest extends BaseTest implements SignInInterface {
     private HomePage homePage;
-    private LoginPage loginPage;
     private ChangePasswordPage changePasswordPage;
 
     @BeforeClass
-    public void initialization(){
-       //init classes
-       homePage = new HomePage(driver);
-       loginPage = new LoginPage(driver);
-       changePasswordPage = new ChangePasswordPage(driver);
+    public void initialization() {
+        //init classes
+        homePage = new HomePage(driver);
+        changePasswordPage = new ChangePasswordPage(driver);
 
-        //firstly we should sign in
-       homePage.clickOnSignInLink();
-       loginPage.signIn("infinity.aitu@gmail.com", "aitu123456789");
-
-       //open profile page
-       homePage.clickOnMyAccountLink();
+        signIn(ConfProperties.getProperty("email"), ConfProperties.getProperty("password"), driver);
+        homePage.clickOnMyAccountLink();
     }
 
     @Test

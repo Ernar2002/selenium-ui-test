@@ -2,16 +2,17 @@ package com.example.pages;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.example.base.ConfProperties;
 import com.example.base.HomePage;
 import com.example.core.BaseTest;
+import com.example.core.SignInInterface;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class EditAccountDetailsPageTest extends BaseTest {
+public class EditAccountDetailsPageTest extends BaseTest implements SignInInterface {
 
     private HomePage homePage;
-    private LoginPage loginPage;
     private ViewAccountDetailsPage viewAccountDetailsPage;
     private EditAccountDetailsPage editAccountDetailsPage;
 
@@ -19,13 +20,11 @@ public class EditAccountDetailsPageTest extends BaseTest {
     public void initialization(){
         //init classes
         homePage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
         editAccountDetailsPage = new EditAccountDetailsPage(driver);
         viewAccountDetailsPage = new ViewAccountDetailsPage(driver);
 
         //firstly we should sign in
-        homePage.clickOnSignInLink();
-        loginPage.signIn("infinity.aitu@gmail.com", "aitu123456789");
+        signIn(ConfProperties.getProperty("email"), ConfProperties.getProperty("password"), driver);
 
         //open profile page
         homePage.clickOnMyAccountLink();
