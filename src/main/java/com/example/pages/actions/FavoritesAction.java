@@ -51,7 +51,6 @@ public class FavoritesAction {
         wait.until(ExpectedConditions.visibilityOf(myFavorites));
         myFavorites.click();
         //Delete all favorites
-        wait.until(ExpectedConditions.visibilityOf(deleteMyFavorites.get(0)));
         for(WebElement delete : deleteMyFavorites){
            delete.click();
        }

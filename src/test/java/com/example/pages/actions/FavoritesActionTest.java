@@ -21,8 +21,8 @@ public class FavoritesActionTest extends BaseTest {
 //        favoritesAction.addProductToFavorites(4);
     }
 
-//    @Test
-//    public void deleteFromFavorites() {
-//        favoritesAction.deleteFromFavorites(0);
-//    }
+    @Test
+    public void deleteFromFavorites() {
+        favoritesAction.deleteFromFavorites(0);
+   }
 }
