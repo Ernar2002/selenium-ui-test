@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.example.base.HomePage;
 import com.example.core.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -26,7 +28,10 @@ public class ViewOwnOrdersPageTest extends BaseTest {
     }
 
     @Test
-    public void viewOwnOrdersDetail(){
+    public void viewOwnOrdersDetailTest(){
+        ExtentTest viewOwnOrdersDetailTest = extent.createTest("Edit account details test");
         viewOwnOrdersPage.openPage();
+
+        viewOwnOrdersDetailTest.log(Status.PASS, "Page opened successfully");
     }
 }

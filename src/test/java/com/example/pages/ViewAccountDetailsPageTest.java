@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.example.base.HomePage;
 import com.example.core.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -12,7 +14,7 @@ public class ViewAccountDetailsPageTest extends BaseTest {
     private ViewAccountDetailsPage viewAccountDetailsPage;
 
     @BeforeClass
-    public void initialization(){
+    public void initialization (){
         //init classes
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
@@ -27,7 +29,10 @@ public class ViewAccountDetailsPageTest extends BaseTest {
     }
 
     @Test
-    public void viewAccountsDetail(){
+    public void viewAccountsDetailTest(){
+        ExtentTest viewAccountDetailsTest = extent.createTest("Edit account details test");
+
         viewAccountDetailsPage.openPage();
+        viewAccountDetailsTest.log(Status.PASS, "Page opened successfully");
     }
 }
