@@ -1,5 +1,7 @@
 package com.example.pages.actions;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.example.core.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,12 +22,14 @@ public class NavbarActionTest extends BaseTest {
 
     @Test
     public void redirectToEachDropdownCategoriesWomen() {
+        ExtentTest redirectToEachDropdownCategoriesWomen = extent.createTest("redirectToEachDropdownCategoriesWomen");
         navbarAction.redirectToItemInCategory(0);
 
         WebElement foundCount = driver.findElement(By.xpath("//p[@data-auto-id = 'styleCount']"));
         wait.until(ExpectedConditions.visibilityOf(foundCount));
 
         Assert.assertTrue(foundCount.isDisplayed(), "NOTHING MATCHES YOUR SEARCH");
+        redirectToEachDropdownCategoriesWomen.log(Status.PASS, "Success");
     }
 
 }

@@ -15,14 +15,14 @@
                     <include name="testEditDetails"/>
                 </methods>
             </class>
-            <class name="com.example.pages.LoginPageTest">
-                <methods>
-                    <include name="signInTest"/>
-                </methods>
-            </class>
             <class name="com.example.pages.FalseLoginPageTest">
                 <methods>
                     <include name="falseSignInTest"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.LoginPageTest">
+                <methods>
+                    <include name="signInTest"/>
                 </methods>
             </class>
             <class name="com.example.pages.SignOutPageTest">
@@ -32,17 +32,12 @@
             </class>
             <class name="com.example.pages.ViewAccountDetailsPageTest">
                 <methods>
-                    <include name="viewAccountsDetail"/>
+                    <include name="viewAccountsDetailTest"/>
                 </methods>
             </class>
             <class name="com.example.pages.ViewOwnOrdersPageTest">
                 <methods>
-                    <include name="viewOwnOrdersDetail"/>
-                </methods>
-            </class>
-            <class name="com.example.pages.actions.NavbarActionTest">
-                <methods>
-                    <include name="redirectToEachDropdownCategoriesWomen"/>
+                    <include name="viewOwnOrdersDetailTest"/>
                 </methods>
             </class>
             <class name="com.example.pages.actions.FavoritesActionTest">
@@ -50,26 +45,25 @@
                     <include name="addProductToFavorites"/>
                 </methods>
             </class>
+            <class name="com.example.pages.actions.FilterActionTest">
+                <methods>
+                    <include name="testClass008"/>
+                    <include name="testClass009"/>
+                    <include name="testClass010"/>
+                    <include name="testClass011"/>
+                </methods>
+            </class>
+            <class name="com.example.pages.actions.NavbarActionTest">
+                <methods>
+                    <include name="redirectToEachDropdownCategoriesWomen"/>
+                </methods>
+            </class>
             <class name="com.example.pages.actions.SearchActionTest">
                 <methods>
                     <include name="searchForNikeShoes"/>
-                </methods>
-                <methods>
                     <include name="searchForInvalidProductName"/>
                 </methods>
             </class>
-        </classes>
-    </test>
-    <test name = "Test On Chrome">
-        <parameter name = "BrowserType" value="Chrome"/>
-        <classes>
-            <class name = "com.example.browser.CrossBrowserTesting"/>
-        </classes>
-    </test>
-    <test name = "Test On Firefox">
-        <parameter name = "BrowserType" value="Firefox"/>
-        <classes>
-            <class name = "com.example.browser.CrossBrowserTesting"/>
         </classes>
     </test>
 </suite>

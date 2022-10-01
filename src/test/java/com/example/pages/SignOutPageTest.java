@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.example.base.ConfProperties;
 import com.example.base.HomePage;
 import com.example.core.BaseTest;
@@ -23,11 +25,13 @@ public class SignOutPageTest extends BaseTest implements SignInInterface {
 
     @Test
     public void signOutTest() {
+        ExtentTest signOutTest = extent.createTest("signOutTest");
         homePage.clickOnSignOutBtn();
 
         wait.until(ExpectedConditions.visibilityOf(homePage.myAccountDropDownBtn));
         homePage.myAccountDropDownBtn.click();
         wait.until(ExpectedConditions.visibilityOf(homePage.signInLink));
         Assert.assertTrue(homePage.signInLink.isDisplayed());
+        signOutTest.log(Status.PASS, "Success");
     }
 }

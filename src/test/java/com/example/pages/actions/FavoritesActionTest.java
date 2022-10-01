@@ -1,5 +1,7 @@
 package com.example.pages.actions;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.example.core.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -17,11 +19,15 @@ public class FavoritesActionTest extends BaseTest {
 
     @Test
     public void addProductToFavorites() {
+        ExtentTest addProductToFavorites = extent.createTest("add Product To Favorites test");
+
         int amount = 8;
 
         favoritesAction.addProductToFavoritesWithCount(amount);
 
         Assert.assertEquals(amount, favoritesAction.savedSize());
+
+        addProductToFavorites.log(Status.PASS, "Product added to favorites successfully");
     }
 
 }
